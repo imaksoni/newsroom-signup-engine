@@ -29,7 +29,7 @@ public class SignupService {
 			String userID = getUserID();
 
 			User user = User.builder().userID(userID).firstName(request.getFirstName())
-					.middleName(request.getMiddleName()).lastName(request.getLastName()).mailID(request.getMailID())
+					.middleName(request.getMiddleName()).lastName(request.getLastName()).mailID(request.getEmail())
 					.mob(request.getMob()).password(request.getPassword()).dob(request.getDob())
 					.gender(request.getGender()).build();
 
@@ -43,7 +43,7 @@ public class SignupService {
 
 				if (status != 0) {
 					status = userRepo.saveLoginDetails(user.getUserID(), user.getMailID(), user.getMob(),
-							user.getPassword());
+							user.getPassword(), 0);
 				}
 
 				else {

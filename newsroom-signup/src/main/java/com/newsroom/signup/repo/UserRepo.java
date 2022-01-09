@@ -22,8 +22,8 @@ public interface UserRepo extends JpaRepository<User, String> {
 
 	@Modifying
 	@Transactional
-	@Query(value = "insert into login_user_details(user_id,mail_id,mob_no,password) values (:userID,:mailID,:mob,:password)", nativeQuery = true)
+	@Query(value = "insert into login_user_details(user_id,mail_id,mob_no,password,is_verified) values (:userID,:mailID,:mob,:password,:isVerified)", nativeQuery = true)
 	int saveLoginDetails(@Param("userID") String userID, @Param("mailID") String mailID, @Param("mob") String mob,
-			@Param("password") String password);
+			@Param("password") String password, @Param("isVerified") Integer isVerified);
 
 }

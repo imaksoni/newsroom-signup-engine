@@ -15,7 +15,7 @@ public class SignupRequest {
 
 	private String lastName;
 
-	private String mailID;
+	private String email;
 
 	private String mob;
 
